@@ -1,5 +1,14 @@
 const { createLogger, format, transports } = require('winston');
 
+
+//create successfullly createdLogin started
+
+// Employee created successfully
+
+// Search completed
+
+// Employee deleted console 
+
 const log = createLogger({
   level: 'info',
   format: format.combine(

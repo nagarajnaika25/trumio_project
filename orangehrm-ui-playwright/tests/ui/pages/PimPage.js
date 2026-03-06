@@ -9,7 +9,7 @@ class PimPage {
     // toast helper
     this.toast = new Toast(page);
 
-    // ✅ stable PIM menu locator (href based)
+    // stable PIM menu locator (href based)
     this.pimMenu = page.locator('a[href*="/pim/viewPimModule"]');
 
     // tabs
@@ -50,7 +50,7 @@ class PimPage {
     // rows
     this.tableRows = page.locator('.oxd-table-body .oxd-table-card');
 
-    // ✅ strict-mode safe "No Records Found" (table only, not toast)
+    // strict-mode safe "No Records Found" (table only, not toast)
     this.noRecords = page.locator('.oxd-table-body').getByText('No Records Found');
   }
 
@@ -67,7 +67,7 @@ class PimPage {
     // click without waiting for "load" (SPA)
     await this.pimMenu.click({ noWaitAfter: true, timeout: 30000 });
 
-    // ✅ after click, OrangeHRM usually lands on viewEmployeeList
+    //  after click, OrangeHRM usually lands on viewEmployeeList
     await this.page.waitForURL(/\/pim\/(viewEmployeeList|viewPimModule)/i, { timeout: 30000 });
 
     // confirm tabs visible
@@ -322,10 +322,10 @@ async deleteFirstResult() {
   // wait toast
   await this.toast.expectSuccess();
 
-  // ✅ IMPORTANT: wait for table to refresh
+  // IMPORTANT: wait for table to refresh
   await this.page.waitForLoadState('networkidle');
 
-  // ✅ also wait until row count changes (table rerender)
+  // also wait until row count changes (table rerender)
   await expect(this.tableRows).toHaveCount(0, { timeout: 30000 }).catch(() => {});
 } 
 }
