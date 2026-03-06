@@ -1,7 +1,9 @@
 const { expect } = require('@playwright/test');
 
-class LoginPage {
-  constructor(page) {
+class LoginPage 
+{
+  constructor(page) 
+  {
     this.page = page;
     this.username = page.locator('input[name="username"]');
     this.password = page.locator('input[name="password"]');
@@ -10,7 +12,7 @@ class LoginPage {
   }
 
   async goto() {
-    // ✅ always correct URL
+    // always correct URL
     await this.page.goto(
       'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login',
       { waitUntil: 'domcontentloaded' }
