@@ -28,9 +28,12 @@ module.exports = defineConfig({
     navigationTimeout: 60 * 1000,
 
     trace: 'on-first-retry',
-    screenshot: 'only-on-failure',
-    video: 'retain-on-failure',
+    // screenshot: 'only-on-failure',
+    // video: 'retain-on-failure',
+screenshot: 'on',
+  video: 'on',
 
+    
     launchOptions: { slowMo: 100 },
   },
 

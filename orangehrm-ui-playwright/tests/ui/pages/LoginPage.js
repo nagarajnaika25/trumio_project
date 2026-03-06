@@ -10,9 +10,8 @@ class LoginPage
     this.loginBtn = page.getByRole('button', { name: /login/i });
     this.invalidCredentials = page.getByText(/invalid credentials/i);
   }
-
+//Url
   async goto() {
-    // always correct URL
     await this.page.goto(
       'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login',
       { waitUntil: 'domcontentloaded' }

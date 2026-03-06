@@ -1,38 +1,35 @@
 const { test, expect } = require('@playwright/test');
 const { LoginPage } = require('../pages/LoginPage');
 
-test.describe('Auth', () => {
-
-  test('Positive: valid login redirects to dashboard', async ({ page }) => {
+test.describe('Auth', () => 
+  {
+//Positive login -01
+ test('Positive: valid login redirects to dashboard', async ({ page }) => {
     const loginPage = new LoginPage(page);
-
-    await loginPage.loginSuccess(
-      process.env.OHRM_USERNAME || 'Admin',
+     await loginPage.loginSuccess(process.env.OHRM_USERNAME || 'Admin',
       process.env.OHRM_PASSWORD || 'admin123'
-    );
+    );//Parameters
   });
-
-  test('Negative: invalid password shows error', async ({ page }) => {
-    const loginPage = new LoginPage(page);
-
-    await loginPage.loginFail(
-      process.env.OHRM_USERNAME || 'Admin',
-      'wrong'
-    );
+      // 02
+  test('Negative: invalid password shows error', async ({ page }) =>
+     {
+    const loginPage = new LoginPage(page); //constrocter
+      await loginPage.loginFail(
+      process.env.OHRM_USERNAME || 'Admin','wrong'  );
 
     await loginPage.assertInvalidCredentials();
   });
-
-  test('Negative: empty username/password shows required validation', async ({ page }) => {
+//03
+  test('Negative: empty username/password shows required validation', async ({ page }) =>
+   {
     const loginPage = new LoginPage(page);
-
     await loginPage.goto();
     await loginPage.loginBtn.click();
-
+//04
     // "Required" should appear for both fields
     await expect(page.getByText(/^Required$/)).toHaveCount(2);
   });
-
+//05
   test('Negative: empty password shows required', async ({ page }) => {
     const loginPage = new LoginPage(page);
 
@@ -45,6 +42,7 @@ test.describe('Auth', () => {
     await expect(page.getByText(/^Required$/)).toBeVisible();
   });
 
+//06 Logout succssfully
   test('Logout: user can logout successfully', async ({ page }) => {
     const loginPage = new LoginPage(page);
 
