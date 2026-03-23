@@ -41,7 +41,7 @@ class PimPage {
 
     // employee name filter input
     this.empNameInput = page.getByRole('textbox', { name: /type for hints/i }).first();
-
+z
     // buttons
     this.searchBtn = page.getByRole('button', { name: /search/i });
     this.resetBtn = page.getByRole('button', { name: /reset/i });
@@ -205,20 +205,6 @@ async createEmployee(emp) {
     fullName: `${emp.firstName} ${emp.lastName}`,
   };
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
   async searchByEmployeeId(id) {

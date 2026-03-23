@@ -1,7 +1,8 @@
 const { expect } = require('@playwright/test');
 
 class DashboardPage {
-  constructor(page) {
+  constructor(page) 
+  {
     this.page = page;
 
     // user dropdown
@@ -11,7 +12,8 @@ class DashboardPage {
     this.logoutLink = page.getByRole('menuitem', { name: /logout/i });
   }
 
-  async assertLoaded() {
+  async assertLoaded() 
+  {
     // verify dashboard url
     await expect(this.page).toHaveURL(/dashboard/i, { timeout: 30000 });
   }

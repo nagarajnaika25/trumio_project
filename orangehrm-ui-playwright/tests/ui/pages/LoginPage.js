@@ -12,7 +12,8 @@ class LoginPage
   }
 //Url
   async goto() {
-    await this.page.goto(
+    await this.page.goto
+    (
       'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login',
       { waitUntil: 'domcontentloaded' }
     );
@@ -22,25 +23,29 @@ class LoginPage
     await expect(this.loginBtn).toBeVisible({ timeout: 30000 });
   }
 
-  async loginSuccess(username, password) {
+  async loginSuccess(username, password) 
+  {
     await this.goto();
     await this.username.fill(username);
     await this.password.fill(password);
 
-    await Promise.all([
+    await Promise.all
+    ([
       this.page.waitForURL(/dashboard/i, { timeout: 60000 }),
       this.loginBtn.click(),
     ]);
   }
 
-  async loginFail(username, password) {
+  async loginFail(username, password) 
+  {
     await this.goto();
     await this.username.fill(username);
     await this.password.fill(password);
     await this.loginBtn.click();
   }
 
-  async assertInvalidCredentials() {
+  async assertInvalidCredentials()
+{
     await expect(this.invalidCredentials).toBeVisible({ timeout: 15000 });
   }
 }

@@ -1,8 +1,10 @@
-function unique(prefix = 'Auto') {
+function unique(prefix = 'Auto') 
+{
   return `${prefix}${Date.now()}`;
 }
 
-function buildEmployee() {
+function buildEmployee() 
+{
   const firstName = unique('Auto');
   const lastName = unique('User');
   return {

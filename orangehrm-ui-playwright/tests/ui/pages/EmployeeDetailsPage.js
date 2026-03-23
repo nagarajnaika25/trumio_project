@@ -2,7 +2,8 @@ const { expect } = require('@playwright/test');
 const { Toast } = require('../../../utils/Toast');
 
 class EmployeeDetailsPage {
-  constructor(page) {
+  constructor(page) 
+  {
     this.page = page;
     this.toast = new Toast(page);
 

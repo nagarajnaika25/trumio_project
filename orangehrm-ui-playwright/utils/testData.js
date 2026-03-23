@@ -1,4 +1,5 @@
-exports.buildEmployee = function () {
+exports.buildEmployee = function () 
+{
   const stamp = Date.now();
   return {
     firstName: `Auto${stamp}`,
